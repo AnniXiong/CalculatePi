@@ -3,15 +3,16 @@ import matplotlib.pyplot as plt
 import math
 
 
-Noft = 4000
-Nofp = 200
-pi = []
-stdev = []
+Noft = 400  # number of trials
+Nofp = 400   # number of points
+pi = []      # the list of pi
+stdev = []   # list of standard deviations for each different number of trials/points
 count = 0
-NofTP = []
+NofTP = []  # list of #of trials/points used every time
 
-while Noft > 0:
-	NofTP.append(Noft)
+while Nofp > 0:
+	# here is changing the number of points before nenerating the list of pi values
+	NofTP.append(Nofp)
 	pi = []
 	
 	for i in range(Noft):	
@@ -28,15 +29,10 @@ while Noft > 0:
 		calculatedPi = ratio*4
 		pi.append (calculatedPi)
 	
-	#print(pi)
-	Noft-=20
+	Nofp-=20 # step size
 	std = np.std(pi)
 	stdev.append(std)
 
-'''print(NofTrial)
-print(stdev)
-print(len(NofTrial),len(stdev))
-'''
 plt.plot(NofTP,stdev,'ro')
 plt.xlabel('# of trials')
 plt.ylabel('standardDevaition')
