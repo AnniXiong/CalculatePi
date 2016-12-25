@@ -10,8 +10,10 @@ for i in range(NofEvent):
 	
 	count = 0
 	for j in range(NofEvent):
+		# randomly generating x and y coordinates
 		x = np.random.uniform(0,1)
 		y = np.random.uniform(0,1)
+		# equation of a circle of radius 1 centered at the orgin
 		py = math.sqrt(1 - (x**2))
 		if y < py:
 			count = count + 1.0
